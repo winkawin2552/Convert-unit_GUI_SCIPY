@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import subPage
 
 root = Tk()
-root.geometry("499x281")
+root.geometry("499x281+530+250")
 root.minsize(499, 281)
 root.maxsize(499, 281)
 
@@ -47,12 +47,12 @@ backgroundIMG = PhotoImage(file="picture/background.png")
 canvas.create_image(0, 0, anchor=NW, image=backgroundIMG)
 
 
-lenght = canvas.create_image(10, 0, anchor=NW, image=lenghtPic, tags="lenghtPic")
-metric= canvas.create_image(160, 0, anchor=NW, image=metricPic, tags="metricPic")
-speed = canvas.create_image(300, 0, anchor=NW, image=speedPic, tags="speedPic")
-time = canvas.create_image(10, 120, anchor=NW, image=timePic, tags="timePic")
-volume = canvas.create_image(160, 120, anchor=NW, image=volumePic, tags="volumePic")
-mode = canvas.create_image(5, 5, anchor=NW, image=modePic, tags="modePic")
+canvas.create_image(10, 0, anchor=NW, image=lenghtPic, tags="lenghtPic")
+canvas.create_image(160, 0, anchor=NW, image=metricPic, tags="metricPic")
+canvas.create_image(300, 0, anchor=NW, image=speedPic, tags="speedPic")
+canvas.create_image(10, 120, anchor=NW, image=timePic, tags="timePic")
+canvas.create_image(160, 120, anchor=NW, image=volumePic, tags="volumePic")
+canvas.create_image(5, 5, anchor=NW, image=modePic, tags="modePic")
 
 
 canvas.tag_bind("lenghtPic", "<Button-1>", lenghtMain)
