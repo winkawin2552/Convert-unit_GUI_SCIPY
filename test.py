@@ -8,7 +8,6 @@ Time = {"minute":constants.minute, "hour":constants.hour, "day":constants.day, "
 Speed = {"kmh":constants.kmh, "mph":constants.mph, "mach":constants.mach, "speed_of_sound":constants.speed_of_sound, "knot":constants.knot}
 Volume = {"liter":constants.liter, "litre":constants.litre, "gallon":constants.gallon, "gallon_US":constants.gallon_US, "gallon_imp":constants.gallon_imp, "fluid_ounce":constants.fluid_ounce, "fluid_ounce_US":constants.fluid_ounce_US, "fluid_ounce_imp":constants.fluid_ounce_imp, "barrel":constants.barrel, "bbl":constants.bbl}
 
-
 def checkMode(event):
     if(mode.get() == "Metric"):
         options = ("zepto","atto","femto","pico","nano","micro","milli","centi","deka","hecto","kilo","mega","giga","tera","peta","exa","zetta","yotta")
