@@ -2,8 +2,8 @@ from tkinter import *
 from tkinter import ttk
 from scipy import constants
 from ttkthemes import ThemedTk
-# import mainPage
-import test1
+import mainPage
+
 
 
 def makeWindow(unit):
@@ -32,9 +32,9 @@ def makeWindow(unit):
     
     def back():
         root.destroy()
-        test1.main("")
+        mainPage.main("")
 
-    root = ThemedTk(theme="kroc")
+    root = ThemedTk(theme="breeze")
     root.geometry("499x281+530+250")
     root.title(unit)
     root.minsize(499, 281)
@@ -72,11 +72,11 @@ def makeWindow(unit):
     resultLabel = Label(root, textvariable= resultText, bg = "PeachPuff1")
     resultLabel.grid(row=3, column=1, ipadx=70, ipady=5, sticky=W, padx=20)
 
-    calculateBut = Button(text="Calculated", command= calculate, bg = "lemon chiffon")
+    calculateBut = Button(text="Calculated", command= calculate, bg = "lemon chiffon", relief=RIDGE)
     calculateBut.grid(row = 3, column=0, ipadx=17)
 
     reverseImg = PhotoImage(file="picture/reverse.png")
-    reverseBut = Button(image=reverseImg, width=30, height=30, command= back)
+    reverseBut = Button(image=reverseImg, width=30, height=30, command= back, relief=RIDGE)
     reverseBut.place(x = 444, y = 230)
 
     if(unit == "Metric"):

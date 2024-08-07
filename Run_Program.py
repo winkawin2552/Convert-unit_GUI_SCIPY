@@ -1,0 +1,3 @@
+import mainPage
+
+mainPage.main("")
