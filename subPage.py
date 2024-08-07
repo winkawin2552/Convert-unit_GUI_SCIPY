@@ -72,7 +72,7 @@ def makeWindow(unit):
     resultLabel = Label(root, textvariable= resultText, bg = "PeachPuff1")
     resultLabel.grid(row=3, column=1, ipadx=70, ipady=5, sticky=W, padx=20)
 
-    calculateBut = Button(text="Calculated", command= calculate, bg = "lemon chiffon", relief=RIDGE)
+    calculateBut = Button(text="Calculate", command= calculate, bg = "lemon chiffon", relief=RIDGE)
     calculateBut.grid(row = 3, column=0, ipadx=17)
 
     reverseImg = PhotoImage(file="picture/reverse.png")
