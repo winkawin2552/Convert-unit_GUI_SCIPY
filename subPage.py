@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from scipy import constants
+from ttkthemes import ThemedTk
 
 
 def makeWindow(unit):
@@ -18,7 +19,7 @@ def makeWindow(unit):
                 calculate  = (value * Speed[unitcombo.get()])/Speed[changcombo.get()]
             if(unit == "Volume"):
                 calculate  = (value * Volume[unitcombo.get()])/Volume[changcombo.get()]
-            resultText.set(f"{calculate:.2f} {changcombo.get()}")   
+            resultText.set(f"{calculate} {changcombo.get()}")   
         except(Exception):
             resultText.set(f"Error: {Exception}") 
 
@@ -29,7 +30,7 @@ def makeWindow(unit):
     Volume = {"liter":constants.liter, "litre":constants.litre, "gallon":constants.gallon, "gallon_US":constants.gallon_US, "gallon_imp":constants.gallon_imp, "fluid_ounce":constants.fluid_ounce, "fluid_ounce_US":constants.fluid_ounce_US, "fluid_ounce_imp":constants.fluid_ounce_imp, "barrel":constants.barrel, "bbl":constants.bbl}
     
 
-    root =Tk()
+    root = ThemedTk(theme="kroc")
     root.geometry("499x281+530+250")
     root.title(unit)
     root.minsize(499, 281)
@@ -42,31 +43,33 @@ def makeWindow(unit):
     canvas.grid(row=0, column=0, rowspan=5, columnspan=5)
     canvas.create_image(0, 0, anchor=NW, image=backgroundIMG)
 
-    canvas.create_image(5, 5, anchor=NW, image=unitPic, tags="unitPic")
+    canvas.create_image(444, 5, anchor=NW, image=unitPic, tags="unitPic")
+    color = "linen"
     
-    entryLabel = Label(text="Entry Number:")
-    entryLabel.grid(row = 0, column=0)
-    entrybox = Entry(width=40, textvariable= StringVar())
-    entrybox.grid(column=1, row=0, ipady = 10)
+    entryLabel = Label(text="Entry Number:", bg = color)
+    entryLabel.grid(row = 0, column=0, ipadx=5, ipady=3)
+    entrybox = Entry(width=40, textvariable= StringVar(), bg = "PeachPuff2")
+    entrybox.grid(row =0, column=1, ipady = 10, sticky=W, padx=20)
 
     options = ()
 
-    unitLabel = Label(text="First Unit:")
-    unitLabel.grid(row =1, column=0)
+    unitLabel = Label(text="First Unit:", bg = color)
+    unitLabel.grid(row =1, column=0, ipadx=17, ipady=3)
     unitcombo = ttk.Combobox(root, width= 27, textvariable= StringVar())
-    unitcombo.grid(row=1, column=1)
+    unitcombo.grid(row=1, column=1, sticky=W, padx=20)
 
-    changLabel = Label(text="Chang To:")
-    changLabel.grid(row = 2, column=0)
+    changLabel = Label(text="Chang To:", bg = color)
+    changLabel.grid(row = 2, column=0, ipadx=17, ipady=3)
     changcombo = ttk.Combobox(root, width= 27, textvariable= StringVar())
-    changcombo.grid(row=2, column=1)
+    changcombo.grid(row=2, column=1, sticky=W, padx=20)
 
     resultText = StringVar()
-    resultLabel = Label(root, textvariable= resultText)
-    resultLabel.grid(row=3, column=1)
+    resultText.set("Your Result")
+    resultLabel = Label(root, textvariable= resultText, bg = "PeachPuff1")
+    resultLabel.grid(row=3, column=1, ipadx=70, ipady=5, sticky=W, padx=20)
 
-    calculateBut = Button(text="calculated", command= calculate )
-    calculateBut.grid(row = 3, column=2)
+    calculateBut = Button(text="Calculated", command= calculate, bg = "lemon chiffon")
+    calculateBut.grid(row = 3, column=0, ipadx=17)
 
     if(unit == "Metric"):
         options = ("zepto","atto","femto","pico","nano","micro","milli","centi","deka","hecto","kilo","mega","giga","tera","peta","exa","zetta","yotta")
