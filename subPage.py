@@ -2,13 +2,14 @@ from tkinter import *
 from tkinter import ttk
 from scipy import constants
 from ttkthemes import ThemedTk
+# import mainPage
+import test1
 
 
 def makeWindow(unit):
     def calculate():
         try:
             value = float(entrybox.get())
-            print(entrybox.get())
             if(unit == "Metric"):
                 calculate  = (value * Metric[unitcombo.get()])/Metric[changcombo.get()]
             if(unit == "Length"):
@@ -29,6 +30,9 @@ def makeWindow(unit):
     Speed = {"kmh":constants.kmh, "mph":constants.mph, "mach":constants.mach, "speed_of_sound":constants.speed_of_sound, "knot":constants.knot}
     Volume = {"liter":constants.liter, "litre":constants.litre, "gallon":constants.gallon, "gallon_US":constants.gallon_US, "gallon_imp":constants.gallon_imp, "fluid_ounce":constants.fluid_ounce, "fluid_ounce_US":constants.fluid_ounce_US, "fluid_ounce_imp":constants.fluid_ounce_imp, "barrel":constants.barrel, "bbl":constants.bbl}
     
+    def back():
+        root.destroy()
+        test1.main("")
 
     root = ThemedTk(theme="kroc")
     root.geometry("499x281+530+250")
@@ -70,6 +74,10 @@ def makeWindow(unit):
 
     calculateBut = Button(text="Calculated", command= calculate, bg = "lemon chiffon")
     calculateBut.grid(row = 3, column=0, ipadx=17)
+
+    reverseImg = PhotoImage(file="picture/reverse.png")
+    reverseBut = Button(image=reverseImg, width=30, height=30, command= back)
+    reverseBut.place(x = 444, y = 230)
 
     if(unit == "Metric"):
         options = ("zepto","atto","femto","pico","nano","micro","milli","centi","deka","hecto","kilo","mega","giga","tera","peta","exa","zetta","yotta")
