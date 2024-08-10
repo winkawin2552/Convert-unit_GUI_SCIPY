@@ -11,16 +11,16 @@ def makeWindow(unit):
         try:
             value = float(entrybox.get())
             if(unit == "Metric"):
-                calculate  = (value * Metric[unitcombo.get()])/Metric[changcombo.get()]
+                calculate  = (value * Metric[unitcombo.get()])/Metric[changecombo.get()]
             if(unit == "Length"):
-                calculate  = (value * Length[unitcombo.get()])/Length[changcombo.get()]
+                calculate  = (value * Length[unitcombo.get()])/Length[changecombo.get()]
             if(unit == "Time"):
-                calculate  = (value * Time[unitcombo.get()])/Time[changcombo.get()]
+                calculate  = (value * Time[unitcombo.get()])/Time[changecombo.get()]
             if(unit == "Speed"):
-                calculate  = (value * Speed[unitcombo.get()])/Speed[changcombo.get()]
+                calculate  = (value * Speed[unitcombo.get()])/Speed[changecombo.get()]
             if(unit == "Volume"):
-                calculate  = (value * Volume[unitcombo.get()])/Volume[changcombo.get()]
-            resultText.set(f"{calculate} {changcombo.get()}")   
+                calculate  = (value * Volume[unitcombo.get()])/Volume[changecombo.get()]
+            resultText.set(f"{calculate} {changecombo.get()}")   
         except(Exception):
             resultText.set(f"Error: {Exception}") 
 
@@ -62,10 +62,10 @@ def makeWindow(unit):
     unitcombo = ttk.Combobox(root, width= 27, textvariable= StringVar())
     unitcombo.grid(row=1, column=1, sticky=W, padx=20)
 
-    changLabel = Label(text="Chang To:", bg = color)
-    changLabel.grid(row = 2, column=0, ipadx=17, ipady=3)
-    changcombo = ttk.Combobox(root, width= 27, textvariable= StringVar())
-    changcombo.grid(row=2, column=1, sticky=W, padx=20)
+    changeLabel = Label(text="change To:", bg = color)
+    changeLabel.grid(row = 2, column=0, ipadx=17, ipady=3)
+    changecombo = ttk.Combobox(root, width= 27, textvariable= StringVar())
+    changecombo.grid(row=2, column=1, sticky=W, padx=20)
 
     resultText = StringVar()
     resultText.set("Your Result")
@@ -93,9 +93,9 @@ def makeWindow(unit):
     else:
         options = ()
     unitcombo["values"] = options
-    changcombo["values"] = options
+    changecombo["values"] = options
     unitcombo.set("")
-    changcombo.set("")
+    changecombo.set("")
 
 
     root.mainloop()
